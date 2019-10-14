@@ -5,8 +5,6 @@ const { startServer } = require("./lib/cli/startServer")
 
 const fileName = findIndexFile()
 
-console.log(fileName)
-
 if (!fileName) {
   console.log("\nCould not find an entry file in your working directory")
   console.log('Please make sure to call the file "index.js" or "index.ts"')
