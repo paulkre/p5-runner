@@ -1,6 +1,6 @@
 {
   "name": "p5-runner",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A tool for running P5 sketches in a modern ESNext or TypeScript environment",
   "main": "lib/index.js",
   "scripts": {
