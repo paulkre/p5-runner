@@ -3,7 +3,7 @@
 const fs = require("fs")
 const path = require("path")
 
-const { startServer } = require("./lib/cli/startServer")
+const { startServer } = require("./lib")
 
 const entry = path.join(process.cwd(), "index.js")
 
