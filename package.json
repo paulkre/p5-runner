@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc-watch",
-    "start": "node lib/cli/startServer.js"
+    "start": "p5-runner"
   },
   "repository": {
     "type": "git",
