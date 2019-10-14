@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #202020;
+  color: white;
+}
+
+#canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#canvas-wrapper > canvas {
+  border: 1px solid #707070;
+}

@@ -1,0 +1,51 @@
+{
+  "name": "p5-runner",
+  "version": "0.1.0",
+  "description": "A tool for running P5 sketches in a modern ESNext or TypeScript environment",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc-watch",
+    "start": "node lib/cli/startServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulkre/p5-runner.git"
+  },
+  "keywords": [],
+  "author": "Paul Kretschel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulkre/p5-runner/issues"
+  },
+  "homepage": "https://github.com/paulkre/p5-runner#readme",
+  "bin": {
+    "p5-runner": "p5-runner.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^3.2.0",
+    "p5": "^0.9.0",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/copy-webpack-plugin": "^5.0.0",
+    "@types/html-webpack-plugin": "^3.2.1",
+    "@types/p5": "^0.9.0",
+    "@types/webpack": "^4.39.3",
+    "@types/webpack-dev-server": "^3.1.7",
+    "nodemon": "^1.19.2",
+    "ts-node": "^8.4.1",
+    "tsc-watch": "^4.0.0"
+  }
+}
