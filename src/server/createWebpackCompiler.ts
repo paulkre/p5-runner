@@ -4,10 +4,13 @@ import CopyWebpackPlugin from "copy-webpack-plugin"
 import path from "path"
 
 const publicDir = path.resolve(__dirname, "../../public")
+const distDir = path.resolve(__dirname, "../../dist")
 
-export const runWebpack = (entry: string, dist: string) =>
+export const createWebpackCompiler = (entry: string, port: number) =>
   webpack({
-    entry,
+    entry: {
+      app: ["webpack-hot-middleware/client?reload=true&timeout=1000", entry],
+    },
     mode: "development",
     module: {
       rules: [
@@ -32,18 +35,29 @@ export const runWebpack = (entry: string, dist: string) =>
       new CopyWebpackPlugin([
         {
           from: path.join(publicDir, "main.css"),
-          to: path.join(dist, "main.css"),
+          to: path.join(distDir, "main.css"),
         },
       ]),
       new HtmlWebpackPlugin({
         template: path.join(publicDir, "index.html"),
       }),
+      new webpack.HotModuleReplacementPlugin(),
     ],
     resolve: {
       extensions: [".ts", ".js"],
     },
     output: {
       filename: "bundle.js",
-      path: dist,
+      path: distDir,
+    },
+    devServer: {
+      contentBase: distDir,
+      port,
+      stats: {
+        all: false,
+        colors: true,
+        errors: true,
+        errorDetails: true,
+      },
     },
   })

@@ -1,20 +1,16 @@
-import path from "path"
-import WebpackDevServer from "webpack-dev-server"
-import { runWebpack } from "./runWebpack"
+import express from "express"
+import webpackDevMiddleware from "webpack-dev-middleware"
+import webpackHotMiddleware from "webpack-hot-middleware"
 
-const dist = path.resolve(__dirname, "../../dist")
+import { createWebpackCompiler } from "./createWebpackCompiler"
 
 export function startServer(entry: string, port: number = 3000) {
-  const server = new WebpackDevServer(runWebpack(entry, dist), {
-    contentBase: dist,
-    port,
-    stats: {
-      all: false,
-      colors: true,
-      errors: true,
-      errorDetails: true,
-    },
-  })
+  const app = express()
 
-  server.listen(port, "localhost")
+  const compiler = createWebpackCompiler(entry, port)
+
+  app.use(webpackDevMiddleware(compiler))
+  app.use(webpackHotMiddleware(compiler))
+
+  app.listen(port)
 }
