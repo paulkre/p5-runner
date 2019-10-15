@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc-watch",
-    "start": "node p5-runner.js"
+    "dev": "nodemon",
+    "start": "node lib/cli.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/paulkre/p5-runner#readme",
   "bin": {
-    "p5-runner": "p5-runner.js"
+    "p5-runner": "lib/cli.js"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
@@ -45,10 +45,10 @@
     "@types/p5": "^0.9.0",
     "@types/webpack": "^4.39.3",
     "@types/webpack-dev-middleware": "^2.0.3",
+    "@types/webpack-dev-server": "^3.1.7",
     "@types/webpack-hot-middleware": "^2.16.5",
     "nodemon": "^1.19.2",
     "ts-node": "^8.4.1",
-    "tsc-watch": "^4.0.0",
     "typescript": "^3.6.4"
   }
 }

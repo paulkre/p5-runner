@@ -4,11 +4,11 @@ const fs = require("fs")
 const path = require("path")
 const isValidPath = require("is-valid-path")
 
-const { startServer } = require("./lib/server")
+const { startServer } = require("./server")
 
 console.log()
 
-function getPathFromArgs(filePath) {
+function getPathFromArgs(filePath: string) {
   if (!isValidPath(filePath)) {
     console.log("Please provide a valid entry file")
     process.exit(1)
