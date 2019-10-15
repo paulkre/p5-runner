@@ -9,7 +9,12 @@ export function startServer(entry: string, port: number = 3000) {
 
   const compiler = createWebpackCompiler(entry, port)
 
-  app.use(webpackDevMiddleware(compiler))
+  app.use(
+    webpackDevMiddleware(compiler, {
+      publicPath: "/",
+      stats: "errors-warnings",
+    }),
+  )
   app.use(webpackHotMiddleware(compiler))
 
   app.listen(port)

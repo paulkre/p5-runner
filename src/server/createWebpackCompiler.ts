@@ -50,14 +50,4 @@ export const createWebpackCompiler = (entry: string, port: number) =>
       filename: "bundle.js",
       path: distDir,
     },
-    devServer: {
-      contentBase: distDir,
-      port,
-      stats: {
-        all: false,
-        colors: true,
-        errors: true,
-        errorDetails: true,
-      },
-    },
   })
