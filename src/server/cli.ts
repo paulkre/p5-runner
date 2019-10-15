@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const fs = require("fs")
-const path = require("path")
-const isValidPath = require("is-valid-path")
+import fs from "fs"
+import path from "path"
+import isValidPath from "is-valid-path"
 
-const { startServer } = require("./server")
+import { startServer } from "./startServer"
 
 console.log()
 
