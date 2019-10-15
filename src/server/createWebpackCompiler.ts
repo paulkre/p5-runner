@@ -1,15 +1,15 @@
 import webpack from "webpack"
 import HtmlWebpackPlugin from "html-webpack-plugin"
-import CopyWebpackPlugin from "copy-webpack-plugin"
 import path from "path"
 
-const publicDir = path.resolve(__dirname, "../../public")
-const distDir = path.resolve(__dirname, "../../dist")
-
-export const createWebpackCompiler = (entry: string, port: number) =>
+export const createWebpackCompiler = (entry: string) =>
   webpack({
     entry: {
-      app: ["webpack-hot-middleware/client?reload=true&timeout=1000", entry],
+      app: [
+        "@babel/polyfill",
+        "webpack-hot-middleware/client?reload=true&timeout=1000",
+        entry,
+      ],
     },
     mode: "development",
     module: {
@@ -24,22 +24,11 @@ export const createWebpackCompiler = (entry: string, port: number) =>
             },
           },
         },
-        {
-          test: /\.css$/,
-          exclude: /node_modules/,
-          use: ["style-loader", "css-loader"],
-        },
       ],
     },
     plugins: [
-      new CopyWebpackPlugin([
-        {
-          from: path.join(publicDir, "main.css"),
-          to: path.join(distDir, "main.css"),
-        },
-      ]),
       new HtmlWebpackPlugin({
-        template: path.join(publicDir, "index.html"),
+        template: path.resolve(__dirname, "../../public/index.html"),
       }),
       new webpack.HotModuleReplacementPlugin(),
     ],
@@ -48,6 +37,6 @@ export const createWebpackCompiler = (entry: string, port: number) =>
     },
     output: {
       filename: "bundle.js",
-      path: distDir,
+      path: path.resolve(__dirname, "../../dist"),
     },
   })

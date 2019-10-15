@@ -7,7 +7,7 @@ import { createWebpackCompiler } from "./createWebpackCompiler"
 export function startServer(entry: string, port: number = 3000) {
   const app = express()
 
-  const compiler = createWebpackCompiler(entry, port)
+  const compiler = createWebpackCompiler(entry)
 
   app.use(
     webpackDevMiddleware(compiler, {
