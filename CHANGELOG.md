@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- Add LICENSE
 - Add CHANGELOG
 - Clarify usage documentation in README
 
