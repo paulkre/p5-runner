@@ -1,13 +1,12 @@
-# P5 Runner
+# p5 runner
 
-A tool for running and exporting P5 sketches in a modern ESNext environment.
+A tool for running and exporting [p5.js](https://p5js.org) sketches in a modern ESNext environment. As soon as you make changes to your sketch file p5 runner will automatically reload the sketch in the browser. The tool also provides a simple API for getting animation frames out of the browser and saving them as PNG files.
 
 ## Usage
 
-1. `mkdir my-sketch && cd my-sketch`
-2. `npm init -y`
-3. `npm install -S p5-runner`
-4. Create index.js
+1. `npm init -y`
+2. `npm install --save p5-runner`
+3. Create index.js
 
 ```javascript
 import { runSketch } from "p5-runner"
@@ -15,7 +14,7 @@ import { runSketch } from "p5-runner"
 const size = 512
 const fps = 50
 
-const { sin, cos, PI, random } = Math
+const { sin, cos, PI } = Math
 const r = size / 3
 
 runSketch((p, api) => {
@@ -40,7 +39,7 @@ runSketch((p, api) => {
     }
     p.endShape()
 
-    // if (p.frameCount <= 250) api.saveFrame()
+    // if (p.frameCount <= 250) api.saveFrame("out/out.#####.png")
   }
 
   const getPos = frameCount => {
@@ -52,9 +51,9 @@ runSketch((p, api) => {
 })
 ```
 
-5. `npx p5-runner` or `npx p5-runner index.js`
-6. Go to [http://localhost:3000](http://localhost:3000)
+4. `npx p5-runner` or `npx p5-runner index.js`
+5. Go to [http://localhost:3000](http://localhost:3000)
 
-## Saving frames as PNG sequence
+## Exporting your sketch as PNG files
 
-When you call the `api.saveFrame()` method in your sketch file, P5 Runner will render the current frame to a PNG file and store it in a directory called "out" in your current working directory.
+Calling the `api.saveFrame()` method in your sketch file will save the current frame of your sketch in your project's directory. The default output location is "out/out.#####.png" but you can also provide your own destination path like this: `api.saveFrame("renders/sketch01/#####.png")` or `api.saveFrame("still.png")`
