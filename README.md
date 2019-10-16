@@ -7,7 +7,7 @@ A tool for running and exporting P5 sketches in a modern ESNext environment.
 1. `mkdir my-sketch && cd my-sketch`
 2. `npm init -y`
 3. `npm install -S p5-runner`
-4. Create index.js:
+4. Create index.js
 
 ```javascript
 import { runSketch } from "p5-runner"
@@ -52,18 +52,8 @@ runSketch((p, api) => {
 })
 ```
 
-5. Add start script to package.json:
-
-```json
-...
-  "scripts": {
-    "start": "p5-runner"
-  }
-...
-```
-
-6. `npm start`
-7. Go to [http://localhost:3000](http://localhost:3000)
+1. `npx p5-runner` or `npx p5-runner index.js`
+2. Go to [http://localhost:3000](http://localhost:3000)
 
 ## Saving frames as PNG sequence
 
