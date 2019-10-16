@@ -65,6 +65,6 @@ runSketch((p, api) => {
 6. `npm start`
 7. Go to [http://localhost:3000](http://localhost:3000)
 
-## Saving frames as PNG files
+## Saving frames as PNG sequence
 
 When you call the `api.saveFrame()` method in your sketch file, P5 Runner will render the current frame to a PNG file and store it in a directory called "out" in your current working directory.
