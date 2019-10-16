@@ -1,6 +1,8 @@
 # p5 runner
 
-A tool for running and exporting [p5.js](https://p5js.org) sketches in a modern ESNext environment. As soon as you make changes to your sketch file p5 runner will automatically reload the sketch in the browser. The tool also provides a simple API for getting animation frames out of the browser and saving them as PNG files.
+A tool for running and exporting [p5.js](https://p5js.org) sketches in a modern ESNext environment.
+
+As soon as you make changes to your sketch file, this package will automatically reload the sketch in the browser. The tool also provides a simple API for getting animation frames out of the browser and saving them as PNG files.
 
 ## Usage
 
