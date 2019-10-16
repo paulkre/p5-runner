@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.2.0] - 2019-10-16
 
 - It is now possible to specify an output file path when saving a frame
 - Add LICENSE
