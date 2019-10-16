@@ -2,10 +2,10 @@ import express from "express"
 import bodyParser from "body-parser"
 import path from "path"
 import fs from "fs"
+import isValidPath from "is-valid-path"
+import mkdirp from "mkdirp"
 
 export const api = express.Router()
-
-const outDir = path.join(process.cwd(), "out")
 
 api.use(
   bodyParser.raw({
@@ -14,20 +14,23 @@ api.use(
   }),
 )
 
-api.post("/saveFrame/:fid", (req, res) => {
-  const { fid } = req.params
-  if (isNaN(Number(fid))) {
+api.post("/saveFrame/:filePath", async (req, res) => {
+  const filePath = path.join(
+    process.cwd(),
+    decodeURIComponent(req.params.filePath),
+  )
+
+  if (!isValidPath(filePath)) {
     req.statusCode = 400
-    return "failure"
+    res.json("failure")
+    return
   }
 
-  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir)
+  const outDir = path.dirname(filePath)
+  if (!fs.existsSync(outDir)) await mkdirp.sync(outDir)
 
   const data: string = req.body.toString()
-  fs.writeFileSync(path.join(outDir, `out.${pad(fid, 5)}.png`), data, "base64")
+  fs.writeFileSync(filePath, data, "base64")
+
   res.json("success")
 })
-
-function pad(n: string, width: number) {
-  return n.length >= width ? n : new Array(width - n.length + 1).join("0") + n
-}
