@@ -52,8 +52,8 @@ runSketch((p, api) => {
 })
 ```
 
-1. `npx p5-runner` or `npx p5-runner index.js`
-2. Go to [http://localhost:3000](http://localhost:3000)
+5. `npx p5-runner` or `npx p5-runner index.js`
+6. Go to [http://localhost:3000](http://localhost:3000)
 
 ## Saving frames as PNG sequence
 
