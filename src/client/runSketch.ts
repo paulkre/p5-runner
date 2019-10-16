@@ -1,5 +1,9 @@
 import P5 from "p5"
 
-export function runSketch(sketch: (p: P5) => void) {
-  new P5(sketch)
+import { createApi, Api } from "./api"
+
+export function runSketch(sketch: (p: P5, api: Api) => void) {
+  new P5((p: P5) => {
+    sketch(p, createApi(p))
+  })
 }
