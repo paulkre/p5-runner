@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+- It is now possible to specify an output file path when saving a frame
 - Add LICENSE
 - Add CHANGELOG
 - Clarify usage documentation in README
