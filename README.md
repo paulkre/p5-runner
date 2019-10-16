@@ -58,4 +58,4 @@ runSketch((p, api) => {
 
 ## Exporting your sketch as PNG files
 
-Calling the `api.saveFrame()` method in your sketch file will save the current frame of your sketch in your project's directory. The default output location is "out/out.#####.png" but you can also provide your own destination path like this: `api.saveFrame("renders/sketch01/#####.png")` or `api.saveFrame("still.png")`
+Calling the `api.saveFrame()` method in your sketch file will save the current animation frame in your project's directory. The default output location is "out/out.#####.png" but you can also provide your own destination path like this: `api.saveFrame("renders/sketch01/#####.png")` or `api.saveFrame("still.png")`
