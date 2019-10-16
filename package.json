@@ -1,7 +1,7 @@
 {
   "name": "p5-runner",
   "version": "1.1.2",
-  "description": "A tool for running and exporting P5 sketches in a modern ESNext environment",
+  "description": "A tool for running and exporting p5.js sketches in a modern ESNext environment",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
