@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2020-01-21
+
+- Security update for "serialize-javascript"
+
 ## [1.2.0] - 2019-10-16
 
 - It is now possible to specify an output file path when saving a frame
